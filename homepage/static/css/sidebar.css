@@ -1,5 +1,5 @@
 .sidebar-text, .sidebar-text:hover, .sidebar-text:focus {
-    color: inherit;
+    color: black;
     text-decoration: none;
     transition: all 0.3s;
 }
@@ -11,15 +11,16 @@
 }
 
 #sidebar {
-    width: 100px;
-    position: fixed;
+    width: 300px;
+    /* position: fixed; */
     top: 0;
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #4F102B;
-    color: #fff;
+    background: #f5f5f5;
+    color: black;
     transition: all 0.3s;
+    border-right:1px solid gray ;
 }
 
 .sidebar.active {
@@ -28,26 +29,26 @@
 
 .sidebar-header {
     padding: 20px;
-    background: #4F102B;
+    background: #f5f5f5;
 }
 
 .sidebar-components {
     padding: 20px 0;
-    border-bottom: 1px solid #4F102B;
+    /* border-bottom: 1px solid #4F102B; */
 }
 
 .sidebar-paragraph {
-    color: #fff;
+    color: black;
     padding: 10px;
 }
 
-.dropdown-toggle::after {
+/* .dropdown-toggle::after {
     display: block;
     position: absolute;
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
-}
+} */
 
 a.right-arrow[data-toggle="collapse"] {
     position: relative;
@@ -56,18 +57,22 @@ a.right-arrow[data-toggle="collapse"] {
 .sidebar-button {
     padding: 10px;
     font-size: 1.1em;
-    display: block;
+    display: flex;
+    width: 100%;
+    padding-left: 20px;
+    align-items: center;
+    gap: 25px;
 }
 
 .sidebar-button:hover {
-    color: #4F102B;
-    background: #fff;
+    color: black;
+    background: #9f9f9f;
 }
 
 .sidebar-subitem {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #69163a;
+    background: #fff;
 }
 
 ul.CTAs {
@@ -83,7 +88,7 @@ ul.CTAs a {
 }
 
 a.nav-button {
-    background: #fff;
+    background: black;
     color: #4F102B;
 }
 
@@ -100,7 +105,7 @@ a.nav-button {
 
 #content {
     width: 100%;
-    margin-left: 250px;
+    /* margin-left: 250px; */
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;

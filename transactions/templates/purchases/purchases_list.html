@@ -8,26 +8,68 @@
 
 {% block content %}
     
-    <div class="row" style="color: #ea2088; font-style: bold; font-size: 3rem;">
+    <div class="row" style="color: black; font-style: bold; font-size: 3rem;">
         <div class="col-md-8">Purchases List</div>
         <div class="col-md-4">               
-            <div style="float:right;"> <a class="btn ghost-blue" href="{% url 'select-supplier' %}">New Incoming Stock</a> </div>
+            <div style="float:right;"> 
+                
+                <!-- <a class="btn ghost-blue" href="{% url 'select-supplier' %}"></a>  -->
+                <button type="button" class="btn ghost-blue" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    New Incoming Stock
+                </button>
+            </div>
         </div>
+
+       
+          
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="">
+                  <button type="button" class="btn-close position-absolute bg-transparent border-0" style="font-size: 16px; right:12px; top: 10px; z-index: 1;" data-bs-dismiss="modal" aria-label="Close">X</button>
+                </div>
+                <div class="modal-body">
+                    <div style="color:#ea2088; font-style: bold; font-size: 3rem; border-bottom: 1px solid white;">New Purchase</div> 
+                    <br/>
+                    
+                    <form method="post">
+                
+                        {% csrf_token %}
+                        
+                        {% for field in form.visible_fields %}
+                            <div class="form-group">
+                                {{ field.label_tag }}
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+                
+                        <br/>
+                        <div class="align-middle">
+                            <button type="submit" class="btn ghost-green">Next</button>
+                            <a href="{% url 'purchases-list' %}" class="btn ghost-button">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+               
+              </div>
+            </div>
+          </div>
     </div>
 
     <br>
 
     <table class="table table-css">
 
-        <thead class="thead-inverse align-middle">
+        <thead class="thead-inverse text-dark align-middle">
             <tr>
-                <th width="10%">Bill No</th>
-                <th width="15%">Supplier</th>
-                <th width="15%">Stocks Purchased</th>
-                <th width="10%">Quantity Purchased</th>
-                <th width="15%">Total Purchased Price</th>
-                <th width="10%">Purchased Date</th>
-                <th width="25%">Options</th>
+                <th class="text-nowrap">Bill No</th>
+                <th>Supplier</th>
+                <th class="text-nowrap">Stocks Purchased</th>
+                <th>Quantity Purchased</th>
+                <th>Total Purchased Price</th>
+                <th>Purchased Date</th>
+                <th>Options</th>
             </tr>
         </thead>
 
