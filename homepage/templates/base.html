@@ -46,10 +46,13 @@
             <ul class="list-unstyled sidebar-components">
                 {# <p class="sidebar-paragraph">Dummy Heading</p> #}
                 <li>
-                    <a class="sidebar-text sidebar-button" href="{% url 'home' %}">Home</a>
+                    <a class="sidebar-text sidebar-button" href="{% url 'home' %}">
+                        <img style="height: 40px" src="{% static '/media/cart.svg' %}" />
+                    </a>
                 </li>               
                 <li>
-                    <a href="#inventorySubmenu" data-toggle="collapse" class="dropdown-toggle sidebar-text right-arrow sidebar-button">Inventory</a>
+                    <a href="#inventorySubmenu" data-toggle="collapse" class="dropdown-toggle sidebar-text right-arrow sidebar-button">                        <img style="height: 40px" src="{% static '/media/truck.svg' %}" />
+</a>
                     <ul class="collapse list-unstyled" id="inventorySubmenu">
                         <li> <a class="sidebar-text sidebar-subitem sidebar-button" href="{% url 'inventory' %}">Inventory List</a> </li>
                         <li> <a class="sidebar-text sidebar-subitem sidebar-button" href="{% url 'new-stock' %}">Add New Stock</a> </li>
